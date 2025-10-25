@@ -1,4 +1,4 @@
-package ru.netology.Chat_Client;
+package ru.netology.ChatClient;
 
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -8,7 +8,7 @@ public class Client {
     private String name;
     private Socket socket;
     private PrintWriter out;
-    public static final String LOGPATH = "log.txt";
+    public static final String LOGPATH = "log1.txt";
 
     public Client(Socket socket, PrintWriter out) {
         this.socket = socket;

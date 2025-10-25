@@ -1,4 +1,4 @@
-package ru.netology.Chat_Client;
+package ru.netology.ChatClient;
 
 import java.io.*;
 import java.net.Socket;
@@ -6,15 +6,14 @@ import java.net.UnknownHostException;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class Client2_Connection {
+public class Client1Connection {
 
-    private static String address;
     private static int port;
+    private static String address;
     private static String settingsPath = "settings.txt";
-
-    private static BufferedReader in;
-    private static PrintWriter out;
     private static Socket clientSocket;
+    private static PrintWriter out;
+    private static BufferedReader in;
 
     public static void main(String[] args) {
 
@@ -32,7 +31,7 @@ public class Client2_Connection {
                             in.close();
                             clientSocket.close();
                         } catch (IOException e) {
-                            e.printStackTrace();
+                            throw new RuntimeException(e);
                         }
                         break;
                     }
@@ -42,7 +41,7 @@ public class Client2_Connection {
                             System.out.println(msg);
                         }
                     } catch (IOException e) {
-                        e.printStackTrace();
+                        throw new RuntimeException(e);
                     }
 
                 }
@@ -63,9 +62,9 @@ public class Client2_Connection {
                 }
             }).start();
         } catch (UnknownHostException e) {
-            e.printStackTrace();
+            System.out.println("Incorrect host name");
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
@@ -79,15 +78,16 @@ public class Client2_Connection {
             port = Integer.parseInt(strings[strings.length - 1]);
             return true;
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("File 'settings.txt' not found");
             return false;
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("File reading error");
             return false;
         }
     }
-}
 
+
+}
 
 
 

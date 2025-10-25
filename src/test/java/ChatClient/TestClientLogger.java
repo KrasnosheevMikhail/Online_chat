@@ -1,13 +1,13 @@
-package Chat_Client;
+package ChatClient;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import ru.netology.Chat_Client.Client;
-import ru.netology.Chat_Client.ClientLogger;
+import ru.netology.ChatClient.Client;
+import ru.netology.ChatClient.ClientLogger;
 
 
-public class Test_ClientLogger {
+public class TestClientLogger {
     @Test
     public void testLogger_correctlyLogging() {
         String example = "Test string";

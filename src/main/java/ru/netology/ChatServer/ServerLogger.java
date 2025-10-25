@@ -1,6 +1,6 @@
-package ru.netology.Chat_Server;
+package ru.netology.ChatServer;
 
-import ru.netology.Chat_Client.Client;
+import ru.netology.ChatClient.Client;
 
 import java.io.FileWriter;
 import java.io.IOException;

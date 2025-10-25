@@ -1,6 +1,6 @@
-package ru.netology.Chat_Server;
+package ru.netology.ChatServer;
 
-import ru.netology.Chat_Client.Client;
+import ru.netology.ChatClient.Client;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -14,12 +14,12 @@ public class Server {
     public static final String ADDRESS = "localhost";
     public static final int PORT = 8080;
     static final String SETTINGSPATH = "settings.txt";
-    static final String LOGPATH = "Log.txt";
+    static final String LOGPATH = "log.txt";
     private static Map<String, Client> clients = new HashMap<>();
 
     public static void main(String[] args) {
         try {
-            createsettings(SETTINGSPATH);
+            createSettings(SETTINGSPATH);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -41,18 +41,18 @@ public class Server {
                         try {
                             clientSocket.close();
                         } catch (IOException e) {
-                            e.printStackTrace();
+                            throw new RuntimeException(e);
                         }
                     }
                 }).start();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
 
-    public static void createsettings(String filePath) throws IOException {
+    public static void createSettings(String filePath) throws IOException {
         BufferedWriter bw = new BufferedWriter(new FileWriter("settings.txt", false));
         bw.write("address: " + ADDRESS);
         bw.newLine();

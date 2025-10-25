@@ -1,4 +1,4 @@
-package ru.netology.Chat_Client;
+package ru.netology.ChatClient;
 
 
 import java.io.FileWriter;
@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 public class ClientLogger {
 
     public static boolean log(String logPath, String msg) {
-        try (FileWriter fileWriter = new FileWriter("log.txt", true)) {
+        try (FileWriter fileWriter = new FileWriter("log1.txt", true)) {
             fileWriter.write(LocalDateTime.now().
                     format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
                     + " -> " + msg + "\n");
